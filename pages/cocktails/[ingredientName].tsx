@@ -4,6 +4,7 @@ import { transformCocktailsData } from '../../services/transformers'
 import Grid from '../../components/Grid'
 import List from '../../components/List'
 import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from 'next'
+import OrderFlowLayout from '../../components/layout/OrderFlowLayout'
 
 function Cocktails({ cocktails }) {
   const router = useRouter()
@@ -59,3 +60,5 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 }
 
 export default Cocktails
+
+Cocktails.Layout = OrderFlowLayout

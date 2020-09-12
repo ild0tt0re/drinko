@@ -3,9 +3,11 @@ import { getIngredientsList } from '../services/api'
 import { transformIngredientsData } from '../services/transformers'
 import Grid from '../components/Grid'
 import List from '../components/List'
-import { GetStaticProps, InferGetStaticPropsType } from 'next'
+import { GetStaticProps, InferGetStaticPropsType, NextPage } from 'next'
+import OrderFlowLayout from '../components/layout/OrderFlowLayout'
 
-function Cocktails({ ingredients }) {
+
+const Cocktails = ({ ingredients }) => {
   const router = useRouter()
 
   if (router.isFallback) {
@@ -35,3 +37,5 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
 }
 
 export default Cocktails
+
+Cocktails.Layout = OrderFlowLayout
