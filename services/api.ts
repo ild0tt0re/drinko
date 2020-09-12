@@ -23,12 +23,11 @@ async function getIngredientsList() {
   }
 }
 
-async function getCocktailsByIngredient() {
-  const filterCocktailsByIngredient = `/filter.php?i=Vodka`
+async function getCocktailsByIngredient(queryParam) {
+  const filterCocktailsByIngredient = `/filter.php?i=${queryParam}`
 
   try {
-    const response = await fetch(apiBaseUrl)
-    return response.json()
+    return await doRequest(filterCocktailsByIngredient)
   } catch {
     console.log(`ERROR: getCocktailsByIngredient`)
   }
