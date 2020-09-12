@@ -53,3 +53,54 @@ WithIngredients.args = {
     },
   ],
 }
+
+export const WithCocktails = Template.bind({})
+WithCocktails.args = {
+  items: [
+    {
+      imageSrc: 'https://www.thecocktaildb.com/images/media/drink/vrwquq1478252802.jpg',
+      title: 'Cocktail 1',
+      buttonColor: '#f1540a',
+    },
+    {
+      imageSrc: 'https://www.thecocktaildb.com/images/media/drink/vrwquq1478252802.jpg',
+      title: 'Cocktail 2',
+      buttonColor: '#f1540a',
+    },
+    {
+      imageSrc: 'https://www.thecocktaildb.com/images/media/drink/vrwquq1478252802.jpg',
+      title: 'Cocktail 3',
+      buttonColor: '#f1540a',
+    },
+    {
+      imageSrc: 'https://www.thecocktaildb.com/images/media/drink/vrwquq1478252802.jpg',
+      title: 'Cocktail 4',
+      buttonColor: '#f1540a',
+    },
+    {
+      imageSrc: 'https://www.thecocktaildb.com/images/media/drink/vrwquq1478252802.jpg',
+      title: 'Cocktail 5',
+      buttonColor: '#f1540a',
+    },
+    {
+      imageSrc: 'https://www.thecocktaildb.com/images/media/drink/vrwquq1478252802.jpg',
+      title: 'Cocktail 6',
+      buttonColor: '#f1540a',
+    },
+    {
+      imageSrc: 'https://www.thecocktaildb.com/images/media/drink/vrwquq1478252802.jpg',
+      title: 'Cocktail 7',
+      buttonColor: '#f1540a',
+    },
+    {
+      imageSrc: 'https://www.thecocktaildb.com/images/media/drink/vrwquq1478252802.jpg',
+      title: 'Cocktail 8',
+      buttonColor: '#f1540a',
+    },
+    {
+      imageSrc: 'https://www.thecocktaildb.com/images/media/drink/vrwquq1478252802.jpg',
+      title: 'Cocktail 9',
+      buttonColor: '#f1540a',
+    },
+  ],
+}

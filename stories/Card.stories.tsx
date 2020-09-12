@@ -22,3 +22,9 @@ export const WithImage = Template.bind({})
 WithImage.args = {
   imageSrc: 'https://www.thecocktaildb.com/images/ingredients/bacardi.png',
 }
+
+export const WithButtonColor = Template.bind({})
+WithButtonColor.args = {
+  imageSrc: 'https://www.thecocktaildb.com/images/ingredients/bacardi.png',
+  buttonColor: '#f1540a',
+}

@@ -11,7 +11,7 @@ const List: React.FC<ListProps> = ({ items = [] }) => {
     <>
       {items.map((item) => (
         <li>
-          <Card imageSrc={item.imageSrc} title={item.title} />
+          <Card imageSrc={item.imageSrc} title={item.title} buttonColor={item.buttonColor} />
         </li>
       ))}
 

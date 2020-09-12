@@ -5,16 +5,17 @@ import { Button } from './Button'
 export type CardProps = {
   imageSrc: string
   title: string
+  buttonColor?: string
   onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void
 }
 
-const Card: React.FC<CardProps> = ({ imageSrc, title }) => {
+const Card: React.FC<CardProps> = ({ imageSrc, title, buttonColor }) => {
   return (
     <>
       <div className="card-container">
         <ResponsiveImageTCDB imageSrc={imageSrc} />
         {title && <p className="title">{title}</p>}
-        <Button label="Seleziona" />
+        <Button label="Seleziona" backgroundColor={buttonColor} />
       </div>
       <style jsx>{`
         .card-container {
@@ -39,6 +40,7 @@ const Card: React.FC<CardProps> = ({ imageSrc, title }) => {
         .card-container :global(button) {
           position: absolute;
           bottom: -17px;
+          width: 75%;
         }
       `}</style>
     </>

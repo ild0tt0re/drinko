@@ -13,7 +13,12 @@ export default {
 
 const Template = (args) => <Grid {...args} />
 
-export const WithGrid = Template.bind({})
-WithGrid.args = {
+export const WithIngredients = Template.bind({})
+WithIngredients.args = {
   children: <List items={ListStories.WithIngredients.args.items}></List>,
+}
+
+export const WithCocktails = Template.bind({})
+WithCocktails.args = {
+  children: <List items={ListStories.WithCocktails.args.items}></List>,
 }
