@@ -19,11 +19,12 @@ const Card: React.FC<CardProps> = ({ imageSrc, title, buttonColor }) => {
       </div>
       <style jsx>{`
         .card-container {
+          box-sizing: border-box;
           max-width: 700px;
           min-width: 100px;
           width: 100%;
           position: relative;
-          padding: 15px 0;
+          padding: 15px 5px;
 
           display: flex;
           flex-direction: column;
@@ -45,7 +46,7 @@ const Card: React.FC<CardProps> = ({ imageSrc, title, buttonColor }) => {
         /* Medium devices (tablets)*/
         @media (min-width: 768px) {
           .card-container {
-            padding: 20px 0;
+            padding: 20px 10px;
           }
         }
       `}</style>

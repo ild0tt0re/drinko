@@ -13,9 +13,25 @@ function Cocktails({ cocktails }) {
   }
 
   return (
-    <Grid>
-      <List items={cocktails}></List>
-    </Grid>
+    <>
+      <section className="ingredients-content">
+        <Grid>
+          <List items={cocktails} buttonColor="#f1540a"></List>
+        </Grid>
+      </section>
+
+      <style jsx>{`
+        .ingredients-content :global(.card-container) {
+          padding: 0 0 15px;
+        }
+        /* Medium devices (tablets)*/
+        @media (min-width: 768px) {
+          .ingredients-content :global(.card-container) {
+            padding-bottom: 0 0 20px;
+          }
+        }
+      `}</style>
+    </>
   )
 }
 

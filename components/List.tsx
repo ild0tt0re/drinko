@@ -4,14 +4,19 @@ import { CardProps } from './Card'
 
 type ListProps = {
   items: Array<CardProps>
+  buttonColor?: string
 }
 
-const List: React.FC<ListProps> = ({ items = [] }) => {
+const List: React.FC<ListProps> = ({ items = [], buttonColor }) => {
   return (
     <>
       {items.map((item, index) => (
         <li key={index}>
-          <Card imageSrc={item.imageSrc} title={item.title} buttonColor={item.buttonColor} />
+          <Card
+            imageSrc={item.imageSrc}
+            title={item.title}
+            buttonColor={buttonColor}
+          />
         </li>
       ))}
 
