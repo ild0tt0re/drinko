@@ -13,13 +13,13 @@ const Grid: React.FC<any> = ({ children }) => {
           grid-template-columns: 1fr 1fr;
           justify-items: center;
           align-items: center;
-          grid-gap: 30px 15px;
+          grid-gap: 37px 15px;
         }
         /* Medium devices (tablets)*/
         @media (min-width: 768px) {
           .grid-container {
             grid-template-columns: repeat(4, 1fr);
-            grid-gap: 30px;
+            grid-gap: 40px 30px;
           }
         }
         /* Large devices (desktops)*/
