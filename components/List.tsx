@@ -10,7 +10,9 @@ const List: React.FC<ListProps> = ({ items = [] }) => {
   return (
     <>
       {items.map((item) => (
-        <Card imageSrc={item.imageSrc} title={item.title} />
+        <li>
+          <Card imageSrc={item.imageSrc} title={item.title} />
+        </li>
       ))}
 
       <style jsx>{`
@@ -19,6 +21,7 @@ const List: React.FC<ListProps> = ({ items = [] }) => {
           margin: 0;
           padding: 0;
           display: list-item;
+          width: 100%;
         }
       `}</style>
     </>
