@@ -5,9 +5,10 @@ import { CardProps } from './Card'
 type ListProps = {
   items: Array<CardProps>
   buttonColor?: string
+  handleClick?: any
 }
 
-const List: React.FC<ListProps> = ({ items = [], buttonColor }) => {
+const List: React.FC<ListProps> = ({ items = [], buttonColor, handleClick }) => {
   return (
     <>
       {items.map((item, index) => (
@@ -16,6 +17,7 @@ const List: React.FC<ListProps> = ({ items = [], buttonColor }) => {
             imageSrc={item.imageSrc}
             title={item.title}
             buttonColor={buttonColor}
+            onClick={handleClick}
           />
         </li>
       ))}

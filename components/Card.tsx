@@ -6,16 +6,30 @@ export type CardProps = {
   imageSrc: string
   title: string
   buttonColor?: string
-  onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void
+  onClick?: any
 }
 
-const Card: React.FC<CardProps> = ({ imageSrc, title, buttonColor }) => {
+const Card: React.FC<CardProps> = ({
+  imageSrc,
+  title,
+  buttonColor,
+  onClick,
+}) => {
+  const handleClick = (e) => {
+    e.preventDefault()
+    onClick(title)
+  }
+
   return (
     <>
       <div className="card-container">
         <ResponsiveImageTCDB imageSrc={imageSrc} />
         {title && <p className="title">{title}</p>}
-        <Button label="Seleziona" backgroundColor={buttonColor} />
+        <Button
+          label="Seleziona"
+          backgroundColor={buttonColor}
+          onClick={onClick && handleClick}
+        />
       </div>
       <style jsx>{`
         .card-container {
@@ -37,6 +51,7 @@ const Card: React.FC<CardProps> = ({ imageSrc, title, buttonColor }) => {
         }
         .title {
           text-align: center;
+          padding: 0 10px;
         }
         .card-container :global(button) {
           position: absolute;

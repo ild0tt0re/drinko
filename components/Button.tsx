@@ -27,6 +27,7 @@ export const Button: React.FC<ButtonProps> = ({
           ' '
         )}
         style={backgroundColor && { backgroundColor }}
+        onClick={onClick}
         {...props}
       >
         {label}

@@ -12,9 +12,14 @@ function Cocktails({ ingredients }) {
     return <div>Loading...</div>
   }
 
+  const handleClick = (slug, as, options) => {
+    const url = `cocktails/${slug}`
+    router.push(url, as, options)
+  }
+
   return (
     <Grid>
-      <List items={ingredients}></List>
+      <List items={ingredients} handleClick={handleClick}></List>
     </Grid>
   )
 }

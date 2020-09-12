@@ -9,10 +9,9 @@ type ImageProps = {
 }
 
 const ResponsiveImageTCDB: React.FC<ImageProps> = ({ imageSrc }) => {
-  debugger
   const image: ImageTCDB = {
     mobile: imageSrc.replace('.png', '-Small.png'),
-    tablet: imageSrc.replace('.png', '-Medium.png'),
+    tablet: imageSrc.includes('ingredients') ? imageSrc.replace('.png', '-Medium.png') : null,
     desktop: `${imageSrc}`,
   }
 
@@ -23,7 +22,7 @@ const ResponsiveImageTCDB: React.FC<ImageProps> = ({ imageSrc }) => {
                  ${image.tablet ? image.tablet + ' 400w,' : ''}
                  ${image.desktop} 700w`}
         sizes={`(max-width: 576px) 100px,
-                (max-width: 1200px) 400px,
+                ${image.tablet ? image.tablet + '(max-width: 1200px) 400px,' : ''}
                 700px`}
         src={image.tablet}
         alt="Bacardi"
