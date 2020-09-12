@@ -9,8 +9,8 @@ type ListProps = {
 const List: React.FC<ListProps> = ({ items = [] }) => {
   return (
     <>
-      {items.map((item) => (
-        <li>
+      {items.map((item, index) => (
+        <li key={index}>
           <Card imageSrc={item.imageSrc} title={item.title} buttonColor={item.buttonColor} />
         </li>
       ))}

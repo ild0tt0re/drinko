@@ -3,6 +3,7 @@ import { getCocktailsByIngredient } from '../../services/api'
 import { transformCocktailsData } from '../../services/transformers'
 import Grid from '../../components/Grid'
 import List from '../../components/List'
+import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from 'next'
 
 function Cocktails({ cocktails }) {
   const router = useRouter()
@@ -18,7 +19,7 @@ function Cocktails({ cocktails }) {
   )
 }
 
-export async function getStaticPaths() {
+export const getStaticPaths: GetStaticPaths = async () => {
   return {
     paths: [
       { params: { ingredientName: 'Vodka' } },
@@ -31,9 +32,8 @@ export async function getStaticPaths() {
   }
 }
 
-export async function getStaticProps({ params }) {
+export const getStaticProps: GetStaticProps = async ({ params }) => {
   const data = await getCocktailsByIngredient(params.ingredientName)
-  console.log('cocktails', data)
   const cocktails = transformCocktailsData(data)
 
   return {

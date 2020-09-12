@@ -9,6 +9,7 @@ type ImageProps = {
 }
 
 const ResponsiveImageTCDB: React.FC<ImageProps> = ({ imageSrc }) => {
+  debugger
   const image: ImageTCDB = {
     mobile: imageSrc.replace('.png', '-Small.png'),
     tablet: imageSrc.replace('.png', '-Medium.png'),

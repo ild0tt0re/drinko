@@ -23,7 +23,7 @@ const Card: React.FC<CardProps> = ({ imageSrc, title, buttonColor }) => {
           min-width: 100px;
           width: 100%;
           position: relative;
-          padding-bottom: 15px;
+          padding: 15px 0;
 
           display: flex;
           flex-direction: column;
@@ -41,6 +41,12 @@ const Card: React.FC<CardProps> = ({ imageSrc, title, buttonColor }) => {
           position: absolute;
           bottom: -17px;
           width: 75%;
+        }
+        /* Medium devices (tablets)*/
+        @media (min-width: 768px) {
+          .card-container {
+            padding: 20px 0;
+          }
         }
       `}</style>
     </>
