@@ -1,6 +1,7 @@
 import React from 'react'
-
 import Grid from '../components/Grid'
+import List from '../components/List'
+import * as ListStories from './List.stories'
 
 export default {
   title: 'Components/Grid',
@@ -14,6 +15,5 @@ const Template = (args) => <Grid {...args} />
 
 export const WithGrid = Template.bind({})
 WithGrid.args = {
-  imageSrc: 'https://www.thecocktaildb.com/images/ingredients/bacardi.png',
-  title: 'Ingrediente 1',
+  children: <List items={ListStories.WithIngredients.args.items}></List>,
 }

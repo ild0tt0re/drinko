@@ -1,32 +1,33 @@
 import React from 'react'
 
-type GridProps = {
-  imageSrc: string
-  title: string
-  onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void
-}
-
-const Grid: React.FC<GridProps> = ({ imageSrc, title }) => {
+const Grid: React.FC<any> = ({ children }) => {
   return (
     <>
-      <div className="grid-container">
-        <ul>
-          <li>Questo è un ingrediente</li>
-          <li>Questo è un ingrediente</li>
-          <li>Questo è un ingrediente</li>
-          <li>Questo è un ingrediente</li>
-          <li>Questo è un ingrediente</li>
-          <li>Questo è un ingrediente</li>
-          <li>Questo è un ingrediente</li>
-          <li>Questo è un ingrediente</li>
-          <li>Questo è un ingrediente</li>
-        </ul>
-      </div>
+      <ul className="grid-container">{children}</ul>
+
       <style jsx>{`
         .grid-container {
-          max-width: 700px;
-          min-width: 100px;
-          width: 100%;
+          display: grid;
+          padding: 0;
+          margin: 0;
+          grid-template-columns: 1fr 1fr;
+          justify-items: center;
+          align-items: center;
+          grid-gap: 10px 10px;
+        }
+        /* Medium devices (tablets)*/
+        @media (min-width: 768px) {
+          .grid-container {
+            grid-template-columns: repeat(4, 1fr);
+          }
+        }
+        /* Large devices (desktops)*/
+        @media (min-width: 992px) {}
+        /* Extra large devices (large desktops) */
+        @media (min-width: 1200px) {
+          .grid-container {
+            grid-template-columns: repeat(5, 1fr);
+          }
         }
       `}</style>
     </>
