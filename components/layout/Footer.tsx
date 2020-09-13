@@ -10,7 +10,7 @@ const Footer: React.FC<FooterProps> = ({}) => {
   return (
     <>
       <footer>
-        
+       Drinko &copy;
       </footer>
 
       <style jsx>{`
@@ -23,7 +23,7 @@ const Footer: React.FC<FooterProps> = ({}) => {
           bottom: 0;
           z-index: 50;
           margin: 0;
-          padding: 20px;
+          padding: 10px;
           background: #fff;
         }
 

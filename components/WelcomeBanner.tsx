@@ -1,11 +1,11 @@
 import React from 'react'
 import LiquidTextAnimation from './LiquidTextAnimation'
 
-const WelcomeBanner: React.FC<any> = ({ children }) => {
+const WelcomeBanner: React.FC<any> = ({ text, slogan }) => {
   return (
     <>
-      <LiquidTextAnimation />
-      <p className="slogan">"Drinks in your way"</p>
+      <LiquidTextAnimation text={text} />
+      <p className="slogan">{slogan}</p>
       <style jsx>{`
         .slogan {
           font-size: 20px;
@@ -14,6 +14,20 @@ const WelcomeBanner: React.FC<any> = ({ children }) => {
           margin-top: 0;
           text-align: center;
           font-family: 'Luckiest Guy', cursive;
+
+          transform: translateY(50px);
+          opacity: 0;
+          animation: 0.5s slideUp 0.5s ease-out forwards;
+        }
+        @keyframes slideUp {
+          from {
+            transform: translateY(50px);
+            opacity: 0;
+          }
+          to {
+            transform: translateY(0);
+            opacity: 1;
+          }
         }
         /* Medium devices (tablets)*/
         @media (min-width: 768px) {

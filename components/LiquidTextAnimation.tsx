@@ -1,11 +1,11 @@
 import React from 'react'
 
-const LiquidTextAnimation: React.FC<any> = ({ children }) => {
+const LiquidTextAnimation: React.FC<any> = ({ text }) => {
   return (
     <>
       <div className="liquid-text-animation-container">
-        <h1>DRINKO</h1>
-        <h1>DRINKO</h1>
+        <h1>{text}</h1>
+        <h1>{text}</h1>
       </div>
 
       <style jsx>{`
@@ -13,6 +13,10 @@ const LiquidTextAnimation: React.FC<any> = ({ children }) => {
           position: relative;
           height: 70px;
           padding: 30px 10px;
+
+          transform: translateY(-50px);
+          opacity: 0;
+          animation: 1s slideUp 1s ease-out forwards;
         }
         h1 {
           position: absolute;
@@ -29,7 +33,16 @@ const LiquidTextAnimation: React.FC<any> = ({ children }) => {
           color: var(--brand-color);
           animation: animate 4s ease-in-out infinite;
         }
-
+        @keyframes slideUp {
+          from {
+            transform: translateY(-50px);
+            opacity: 0;
+          }
+          to {
+            transform: translateY(0);
+            opacity: 1;
+          }
+        }
         @keyframes animate {
           0%,
           100% {

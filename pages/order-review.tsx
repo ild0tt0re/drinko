@@ -29,8 +29,13 @@ const OrderReview = ({ order }) => {
           flex-direction: column;
           justify-content: center;
           align-items: center;
+          height: 80vh;
         }
         .order-review-content :global(button) {
+          margin-top: 20px;
+        }
+        :global(button.back) {
+          display: none;
         }
         /* Medium devices (tablets)*/
         @media (min-width: 768px) {

@@ -6,6 +6,7 @@ export type CardProps = {
   imageSrc: string
   title: string
   buttonColor?: string
+  buttonLabel?: string
   onClick?: any
 }
 
@@ -13,11 +14,12 @@ const Card: React.FC<CardProps> = ({
   imageSrc,
   title,
   buttonColor,
+  buttonLabel = 'Select',
   onClick,
 }) => {
   const handleClick = (e) => {
     e.preventDefault()
-    onClick(title, {imageSrc, title})
+    onClick(title, { imageSrc, title })
   }
 
   return (
@@ -26,7 +28,7 @@ const Card: React.FC<CardProps> = ({
         <ResponsiveImageTCDB imageSrc={imageSrc} />
         {title && <p className="title">{title}</p>}
         <Button
-          label="Seleziona"
+          label={buttonLabel}
           backgroundColor={buttonColor}
           onClick={onClick && handleClick}
         />

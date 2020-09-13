@@ -12,8 +12,8 @@ export default function Home() {
   return (
     <>
       <section className="home-content">
-        <WelcomeBanner />
-        <Button label="See Menu" size="large" onClick={handleClick} />
+        <WelcomeBanner text="DRINKO" slogan='"Drink in your way"' />
+        <Button label="Go to the Menu" size="large" onClick={handleClick} />
       </section>
       <style jsx>{`
         .home-content {
@@ -22,6 +22,18 @@ export default function Home() {
           justify-content: center;
           align-items: center;
           min-height: 100vh;
+        }
+        :global(button) {
+          opacity: 0;
+          animation: 1s fadeIn 1.6s ease-out forwards;
+        }
+        @keyframes fadeIn {
+          from {
+            opacity: 0;
+          }
+          to {
+            opacity: 1;
+          }
         }
         /* Medium devices (tablets)*/
         @media (min-width: 768px) {
