@@ -2,18 +2,7 @@ import React from 'react'
 import { useState } from 'react'
 import Header from './Header'
 import Footer from './Footer'
-
-type IngredientOrder = {
-  imageSrc: string
-  title: string
-}
-
-type CocktailOrder = IngredientOrder
-
-type OrderData = {
-  selectedIngredient?: IngredientOrder
-  selectedCocktail?: CocktailOrder
-}
+import { OrderData } from '../OrderBox'
 
 const OrderFlowLayout = ({ children }) => {
   const [orderData, setOrderData] = useState<OrderData>(null)
