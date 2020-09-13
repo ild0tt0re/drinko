@@ -15,7 +15,12 @@ const OrderReview = ({ order }) => {
       <section className="order-review-content">
         <h1>Order Review</h1>
         <OrderBox {...order.orderData} />
-        <Button label="Back to the Home" onClick={handleClick} />
+        <Button
+          label="Back to the Home"
+          backgroundColor="#000"
+          size="large"
+          onClick={handleClick}
+        />
       </section>
 
       <style jsx>{`
@@ -24,6 +29,8 @@ const OrderReview = ({ order }) => {
           flex-direction: column;
           justify-content: center;
           align-items: center;
+        }
+        .order-review-content :global(button) {
         }
         /* Medium devices (tablets)*/
         @media (min-width: 768px) {

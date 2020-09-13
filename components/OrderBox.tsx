@@ -62,6 +62,7 @@ const OrderBox: React.FC<OrderData> = ({
           margin-right: 10px;
           box-shadow: inset 0px 0px 10px 0px #00000054;
           border-radius: 10px;
+          padding: 5px;
         }
         /* Medium devices (tablets)*/
         @media (min-width: 768px) {
