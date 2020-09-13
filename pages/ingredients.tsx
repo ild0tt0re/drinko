@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
 import { getIngredientsList } from '../services/api'
 import { transformIngredientsData } from '../services/transformers'
@@ -5,6 +6,7 @@ import Grid from '../components/Grid'
 import List from '../components/List'
 import { GetStaticProps, InferGetStaticPropsType, NextPage } from 'next'
 import OrderFlowLayout from '../components/layout/OrderFlowLayout'
+import useIntersectionObserver from '../hooks/useIntersectionObserver'
 
 const Cocktails = ({ ingredients, order }) => {
   const router = useRouter()
@@ -16,6 +18,12 @@ const Cocktails = ({ ingredients, order }) => {
   const { orderData, setOrderData } = order
   console.log('orderData', orderData)
 
+  const [ingredientsToShow, setIngredientsToShow] = useState(
+    [...ingredients]?.slice(0, 12)
+  )
+  const [ref, setRef] = useState(null)
+  const { isIntersecting } = useIntersectionObserver(ref)
+
   const handleClick = (slug, newOrderData) => {
     const selectedIngredient = newOrderData
     setOrderData({ ...orderData, selectedIngredient })
@@ -24,12 +32,20 @@ const Cocktails = ({ ingredients, order }) => {
     router.push(url)
   }
 
+  useEffect(() => {
+    const counterItemsInGrid = ingredientsToShow.length
+    setIngredientsToShow([...ingredients]?.slice(0, counterItemsInGrid + 12))
+  }, [isIntersecting])
+
   return (
     <>
       <h1>Ingredients</h1>
       <Grid>
-        <List items={ingredients} handleClick={handleClick}></List>
+        <List items={ingredientsToShow} handleClick={handleClick}></List>
       </Grid>
+
+      <div ref={setRef}>Is intersecting? {isIntersecting}</div>
+
       <style jsx>{`
         /* Medium devices (tablets)*/
         @media (min-width: 768px) {

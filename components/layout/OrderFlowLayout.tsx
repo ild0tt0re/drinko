@@ -37,12 +37,15 @@ const OrderFlowLayout = ({ children }) => {
         }
         h1 {
           font-size: 40px;
-          padding: 30px 10px;
+          padding: 40px 10px;
           text-align: center;
           font-family: 'Luckiest Guy', cursive;
         }
         /* Medium devices (tablets)*/
         @media (min-width: 768px) {
+          h1 {
+            padding: 60px 10px;
+          }
         }
         /* Large devices (desktops)*/
         @media (min-width: 992px) {
