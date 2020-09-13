@@ -10,7 +10,7 @@ const Footer: React.FC<FooterProps> = ({}) => {
   return (
     <>
       <footer>
-        <div>Footer</div>
+        
       </footer>
 
       <style jsx>{`

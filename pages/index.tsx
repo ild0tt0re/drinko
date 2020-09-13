@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router'
-import HelloWorld from '../components'
 import { Button } from '../components/Button'
+import FrameLayout from '../components/layout/FrameLayout'
 import WelcomeBanner from '../components/WelcomeBanner'
 
 export default function Home() {
@@ -13,7 +13,7 @@ export default function Home() {
     <>
       <section className="home-content">
         <WelcomeBanner />
-        <Button label="See Menu" onClick={handleClick} />
+        <Button label="See Menu" size="large" onClick={handleClick} />
       </section>
       <style jsx>{`
         .home-content {
@@ -36,3 +36,5 @@ export default function Home() {
     </>
   )
 }
+
+Home.Layout = FrameLayout

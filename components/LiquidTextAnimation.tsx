@@ -11,22 +11,22 @@ const LiquidTextAnimation: React.FC<any> = ({ children }) => {
       <style jsx>{`
         .liquid-text-animation-container {
           position: relative;
-          height: 100px;
+          height: 70px;
           padding: 30px 10px;
         }
-        .liquid-text-animation-container h1 {
-          
+        h1 {
           position: absolute;
           color: #fff;
           transform: translate(-50%, -50%);
           font-size: 5em;
+          padding: 0;
         }
-        .liquid-text-animation-container h1:nth-child(1) {
+        h1:nth-child(1) {
           color: transparent;
-          -webkit-text-stroke: 2px #03a9f4;
+          -webkit-text-stroke: 2px var(--brand-color);
         }
-        .liquid-text-animation-container h1:nth-child(2) {
-          color: #03a9f4;
+        h1:nth-child(2) {
+          color: var(--brand-color);
           animation: animate 4s ease-in-out infinite;
         }
 

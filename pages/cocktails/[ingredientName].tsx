@@ -6,6 +6,7 @@ import List from '../../components/List'
 import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from 'next'
 import OrderFlowLayout from '../../components/layout/OrderFlowLayout'
 import useLazyLoadItems from '../../hooks/useLazyLoadItems'
+import Marker from '../../components/Marker'
 
 function Cocktails({ cocktails, order }) {
   const router = useRouter()
@@ -40,9 +41,7 @@ function Cocktails({ cocktails, order }) {
             buttonColor="#f1540a"
           ></List>
         </Grid>
-        <div className="marker" ref={setRef}>
-          Loading...
-        </div>
+        <Marker setRef={setRef} />
       </section>
 
       <style jsx>{`

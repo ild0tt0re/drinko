@@ -6,6 +6,7 @@ import List from '../components/List'
 import { GetStaticProps, InferGetStaticPropsType, NextPage } from 'next'
 import OrderFlowLayout from '../components/layout/OrderFlowLayout'
 import useLazyLoadItems from '../hooks/useLazyLoadItems'
+import Marker from '../components/Marker'
 
 const Cocktails = ({ ingredients, order }) => {
   const router = useRouter()
@@ -38,15 +39,9 @@ const Cocktails = ({ ingredients, order }) => {
         <Grid>
           <List items={ingredientsToShow} handleClick={handleClick}></List>
         </Grid>
-        <div className="marker" ref={setRef}>
-          Loading...
-        </div>
+        <Marker setRef={setRef} />
       </section>
       <style jsx>{`
-        .marker {
-          visibility: hidden;
-          opacity: 0;
-        }
         /* Medium devices (tablets)*/
         @media (min-width: 768px) {
         }
