@@ -15,6 +15,8 @@ const Cocktails = ({ ingredients, order }) => {
     return <div>Loading...</div>
   }
 
+  //Page ready from here!
+
   const { orderData, setOrderData } = order
   console.log('orderData', orderData)
 
@@ -24,6 +26,12 @@ const Cocktails = ({ ingredients, order }) => {
   const [ref, setRef] = useState(null)
   const { isIntersecting } = useIntersectionObserver(ref)
 
+  //to lazy load items to show in grid
+  useEffect(() => {
+    const counterItemsInGrid = ingredientsToShow.length
+    setIngredientsToShow([...ingredients]?.slice(0, counterItemsInGrid + 12))
+  }, [isIntersecting])
+
   const handleClick = (slug, newOrderData) => {
     const selectedIngredient = newOrderData
     setOrderData({ ...orderData, selectedIngredient })
@@ -32,19 +40,12 @@ const Cocktails = ({ ingredients, order }) => {
     router.push(url)
   }
 
-  useEffect(() => {
-    const counterItemsInGrid = ingredientsToShow.length
-    setIngredientsToShow([...ingredients]?.slice(0, counterItemsInGrid + 12))
-  }, [isIntersecting])
-
   return (
     <>
       <h1>Ingredients</h1>
       <Grid>
         <List items={ingredientsToShow} handleClick={handleClick}></List>
       </Grid>
-
-      <div ref={setRef}>Is intersecting? {isIntersecting}</div>
 
       <style jsx>{`
         /* Medium devices (tablets)*/
