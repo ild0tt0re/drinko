@@ -17,7 +17,7 @@ const Card: React.FC<CardProps> = ({
 }) => {
   const handleClick = (e) => {
     e.preventDefault()
-    onClick(title)
+    onClick(title, {imageSrc, title})
   }
 
   return (

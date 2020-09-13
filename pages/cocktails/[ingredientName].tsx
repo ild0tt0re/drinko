@@ -6,11 +6,21 @@ import List from '../../components/List'
 import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from 'next'
 import OrderFlowLayout from '../../components/layout/OrderFlowLayout'
 
-function Cocktails({ cocktails }) {
+function Cocktails({ cocktails, order }) {
   const router = useRouter()
 
   if (router.isFallback) {
     return <div>Loading...</div>
+  }
+
+  const { orderData, setOrderData } = order
+  console.log('orderData', orderData)
+
+  const handleClick = (slug, newOrderData) => {
+    const selectedCocktail = newOrderData
+    setOrderData({ ...orderData, selectedCocktail })
+
+    router.push(`/order-review`)
   }
 
   return (
@@ -18,7 +28,11 @@ function Cocktails({ cocktails }) {
       <h1>Cocktails</h1>
       <section className="ingredients-content">
         <Grid>
-          <List items={cocktails} buttonColor="#f1540a"></List>
+          <List
+            items={cocktails}
+            handleClick={handleClick}
+            buttonColor="#f1540a"
+          ></List>
         </Grid>
       </section>
 

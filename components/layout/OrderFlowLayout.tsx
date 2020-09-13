@@ -1,20 +1,34 @@
+import React from 'react'
 import { useState } from 'react'
 import Header from './Header'
 import Footer from './Footer'
 
+type IngredientOrder = {
+  imageSrc: string
+  title: string
+}
+
+type CocktailOrder = IngredientOrder
+
+type OrderData = {
+  selectedIngredient?: IngredientOrder
+  selectedCocktail?: CocktailOrder
+}
+
 const OrderFlowLayout = ({ children }) => {
-  const [counter, setCounter] = useState(0)
+  const [orderData, setOrderData] = useState<OrderData>(null)
+
+  let childrenWithAdditionalProps = React.cloneElement(children, {
+    order: {
+      orderData,
+      setOrderData,
+    },
+  })
 
   return (
     <>
       <Header />
-      <p>
-        <button onClick={() => setCounter(counter + 1)}>
-          Clicked {counter} Times
-        </button>
-      </p>
-
-      <main>{children}</main>
+      <main>{childrenWithAdditionalProps}</main>
       <Footer />
 
       <style jsx global>{`

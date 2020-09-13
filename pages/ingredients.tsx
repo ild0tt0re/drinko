@@ -6,16 +6,22 @@ import List from '../components/List'
 import { GetStaticProps, InferGetStaticPropsType, NextPage } from 'next'
 import OrderFlowLayout from '../components/layout/OrderFlowLayout'
 
-const Cocktails = ({ ingredients }) => {
+const Cocktails = ({ ingredients, order }) => {
   const router = useRouter()
 
   if (router.isFallback) {
     return <div>Loading...</div>
   }
 
-  const handleClick = (slug, as, options) => {
+  const { orderData, setOrderData } = order
+  console.log('orderData', orderData)
+
+  const handleClick = (slug, newOrderData) => {
+    const selectedIngredient = newOrderData
+    setOrderData({ ...orderData, selectedIngredient })
+
     const url = `cocktails/${slug}`
-    router.push(url, as, options)
+    router.push(url)
   }
 
   return (
@@ -25,10 +31,8 @@ const Cocktails = ({ ingredients }) => {
         <List items={ingredients} handleClick={handleClick}></List>
       </Grid>
       <style jsx>{`
-        
         /* Medium devices (tablets)*/
         @media (min-width: 768px) {
-          
         }
       `}</style>
     </>
