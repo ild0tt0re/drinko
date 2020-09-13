@@ -1,4 +1,3 @@
-import { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
 import { getIngredientsList } from '../services/api'
 import { transformIngredientsData } from '../services/transformers'
@@ -6,7 +5,7 @@ import Grid from '../components/Grid'
 import List from '../components/List'
 import { GetStaticProps, InferGetStaticPropsType, NextPage } from 'next'
 import OrderFlowLayout from '../components/layout/OrderFlowLayout'
-import useIntersectionObserver from '../hooks/useIntersectionObserver'
+import useLazyLoadItems from '../hooks/useLazyLoadItems'
 
 const Cocktails = ({ ingredients, order }) => {
   const router = useRouter()
@@ -15,22 +14,14 @@ const Cocktails = ({ ingredients, order }) => {
     return <div>Loading...</div>
   }
 
-  //Page ready from here!
+  // PAGE READY FROM HERE!
+  const [
+    { itemsToShow: ingredientsToShow },
+    { ref, setRef },
+  ] = useLazyLoadItems(ingredients)
 
   const { orderData, setOrderData } = order
   console.log('orderData', orderData)
-
-  const [ingredientsToShow, setIngredientsToShow] = useState(
-    [...ingredients]?.slice(0, 12)
-  )
-  const [ref, setRef] = useState(null)
-  const { isIntersecting } = useIntersectionObserver(ref)
-
-  //to lazy load items to show in grid
-  useEffect(() => {
-    const counterItemsInGrid = ingredientsToShow.length
-    setIngredientsToShow([...ingredients]?.slice(0, counterItemsInGrid + 12))
-  }, [isIntersecting])
 
   const handleClick = (slug, newOrderData) => {
     const selectedIngredient = newOrderData
@@ -42,12 +33,20 @@ const Cocktails = ({ ingredients, order }) => {
 
   return (
     <>
-      <h1>Ingredients</h1>
-      <Grid>
-        <List items={ingredientsToShow} handleClick={handleClick}></List>
-      </Grid>
-
+      <section>
+        <h1>Ingredients</h1>
+        <Grid>
+          <List items={ingredientsToShow} handleClick={handleClick}></List>
+        </Grid>
+        <div className="marker" ref={setRef}>
+          Loading...
+        </div>
+      </section>
       <style jsx>{`
+        .marker {
+          visibility: hidden;
+          opacity: 0;
+        }
         /* Medium devices (tablets)*/
         @media (min-width: 768px) {
         }

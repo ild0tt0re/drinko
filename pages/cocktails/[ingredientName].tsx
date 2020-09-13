@@ -5,6 +5,7 @@ import Grid from '../../components/Grid'
 import List from '../../components/List'
 import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from 'next'
 import OrderFlowLayout from '../../components/layout/OrderFlowLayout'
+import useLazyLoadItems from '../../hooks/useLazyLoadItems'
 
 function Cocktails({ cocktails, order }) {
   const router = useRouter()
@@ -12,6 +13,11 @@ function Cocktails({ cocktails, order }) {
   if (router.isFallback) {
     return <div>Loading...</div>
   }
+
+  // PAGE READY FROM HERE!
+  const [{ itemsToShow: cocktailsToShow }, { ref, setRef }] = useLazyLoadItems(
+    cocktails
+  )
 
   const { orderData, setOrderData } = order
   console.log('orderData', orderData)
@@ -29,11 +35,14 @@ function Cocktails({ cocktails, order }) {
       <section className="ingredients-content">
         <Grid>
           <List
-            items={cocktails}
+            items={cocktailsToShow}
             handleClick={handleClick}
             buttonColor="#f1540a"
           ></List>
         </Grid>
+        <div className="marker" ref={setRef}>
+          Loading...
+        </div>
       </section>
 
       <style jsx>{`

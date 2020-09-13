@@ -36,6 +36,7 @@ const Card: React.FC<CardProps> = ({
           box-sizing: border-box;
           max-width: 700px;
           min-width: 100px;
+          min-height: 200px;
           width: 100%;
           position: relative;
           padding: 15px 5px;
@@ -62,6 +63,7 @@ const Card: React.FC<CardProps> = ({
         @media (min-width: 768px) {
           .card-container {
             padding: 20px 10px;
+            min-height: 250px;
           }
         }
       `}</style>

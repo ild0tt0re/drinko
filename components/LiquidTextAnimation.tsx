@@ -11,7 +11,7 @@ const LiquidTextAnimation: React.FC<any> = ({ children }) => {
       <style jsx>{`
         .liquid-text-animation-container {
           position: relative;
-          height: 60px;
+          height: 100px;
           padding: 30px 10px;
         }
         .liquid-text-animation-container h1 {
@@ -19,7 +19,7 @@ const LiquidTextAnimation: React.FC<any> = ({ children }) => {
           position: absolute;
           color: #fff;
           transform: translate(-50%, -50%);
-          font-size: 3em;
+          font-size: 5em;
         }
         .liquid-text-animation-container h1:nth-child(1) {
           color: transparent;
