@@ -1,8 +1,11 @@
+import { useRouter } from 'next/router'
 import React from 'react'
 
 export type HeaderProps = {}
 
 const Header: React.FC<HeaderProps> = ({}) => {
+  const router = useRouter()
+
   const handleClick = (e) => {
     e.preventDefault()
   }
@@ -10,7 +13,9 @@ const Header: React.FC<HeaderProps> = ({}) => {
   return (
     <>
       <header>
-        <div className="back"> &lt;</div>
+        <button className="back" onClick={() => router.back()}>
+          &lt;
+        </button>
         <div>logo</div>
       </header>
 
