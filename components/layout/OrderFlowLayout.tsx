@@ -21,8 +21,15 @@ const OrderFlowLayout = ({ children }) => {
       <Footer />
 
       <style jsx global>{`
-        body {
+        * {
           margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+        }
+
+        @import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap');
+
+        body {
         }
         main {
           padding: 20px 20px 40px;
@@ -30,7 +37,9 @@ const OrderFlowLayout = ({ children }) => {
         }
         h1 {
           font-size: 40px;
+          padding: 30px 10px;
           text-align: center;
+          font-family: 'Luckiest Guy', cursive;
         }
         /* Medium devices (tablets)*/
         @media (min-width: 768px) {

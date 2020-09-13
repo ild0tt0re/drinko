@@ -51,7 +51,7 @@ const Card: React.FC<CardProps> = ({
         }
         .title {
           text-align: center;
-          padding: 0 10px;
+          padding: 18px 10px;
         }
         .card-container :global(button) {
           position: absolute;

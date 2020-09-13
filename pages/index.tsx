@@ -1,6 +1,7 @@
 import { useRouter } from 'next/router'
 import HelloWorld from '../components'
 import { Button } from '../components/Button'
+import WelcomeBanner from '../components/WelcomeBanner'
 
 export default function Home() {
   const router = useRouter()
@@ -9,11 +10,29 @@ export default function Home() {
   }
 
   return (
-    <div>
-      <h1>DRINKO</h1>
-      <p>Drink in your way</p>
-      <HelloWorld />
-      <Button label="See Menu" onClick={handleClick}/>
-    </div>
+    <>
+      <section className="home-content">
+        <WelcomeBanner />
+        <Button label="See Menu" onClick={handleClick} />
+      </section>
+      <style jsx>{`
+        .home-content {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          min-height: 100vh;
+        }
+        /* Medium devices (tablets)*/
+        @media (min-width: 768px) {
+        }
+        /* Large devices (desktops)*/
+        @media (min-width: 992px) {
+        }
+        /* Extra large devices (large desktops) */
+        @media (min-width: 1200px) {
+        }
+      `}</style>
+    </>
   )
 }
