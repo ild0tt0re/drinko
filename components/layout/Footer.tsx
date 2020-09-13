@@ -1,40 +1,35 @@
 import React from 'react'
 
-export type HeaderProps = {}
+export type FooterProps = {}
 
-const Header: React.FC<HeaderProps> = ({}) => {
+const Footer: React.FC<FooterProps> = ({}) => {
   const handleClick = (e) => {
     e.preventDefault()
   }
 
   return (
     <>
-      <header>
-        <div className="back"> &lt;</div>
-        <div>logo</div>
-      </header>
+      <footer>
+        <div>Footer</div>
+      </footer>
 
       <style jsx>{`
-        header {
+        footer {
           display: flex;
           justify-content: center;
           box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16),
             0 3px 6px rgba(0, 0, 0, 0.23);
           position: sticky;
-          top: 0;
+          bottom: 0;
           z-index: 50;
           margin: 0;
           padding: 20px;
           background: #fff;
         }
 
-        .back {
-          position: absolute;
-          left: 30px;
-        }
         /* Medium devices (tablets)*/
         @media (min-width: 768px) {
-          header {
+          footer {
           }
         }
       `}</style>
@@ -42,4 +37,4 @@ const Header: React.FC<HeaderProps> = ({}) => {
   )
 }
 
-export default Header
+export default Footer

@@ -6,7 +6,6 @@ import List from '../components/List'
 import { GetStaticProps, InferGetStaticPropsType, NextPage } from 'next'
 import OrderFlowLayout from '../components/layout/OrderFlowLayout'
 
-
 const Cocktails = ({ ingredients }) => {
   const router = useRouter()
 
@@ -20,9 +19,19 @@ const Cocktails = ({ ingredients }) => {
   }
 
   return (
-    <Grid>
-      <List items={ingredients} handleClick={handleClick}></List>
-    </Grid>
+    <>
+      <h1>Ingredients</h1>
+      <Grid>
+        <List items={ingredients} handleClick={handleClick}></List>
+      </Grid>
+      <style jsx>{`
+        
+        /* Medium devices (tablets)*/
+        @media (min-width: 768px) {
+          
+        }
+      `}</style>
+    </>
   )
 }
 
