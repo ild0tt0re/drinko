@@ -10,7 +10,7 @@ const FrameLayout = ({ children }) => {
       <style jsx global>{`
         header,
         footer {
-          position: absolute;
+          position: fixed;
           z-index: 50;
           margin: 0;
           padding: 0;

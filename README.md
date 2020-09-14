@@ -1,35 +1,63 @@
-# Example app with Storybook
+# NEXTJS PROJECT | DRINKO
 
-This example shows a default set up of Storybook. Also included in the example is a custom component included in both Storybook and the Next.js application.
+<p align="center"><img src="./public/assets/drinko-animated.gif" alt="drinko animated text"></p>
 
-### TypeScript
 
-As of v6.0, Storybook has built-in TypeScript support, so no configuration is needed. If you want to customize the default configuration, refer to the [TypeScript docs](https://storybook.js.org/docs/react/configure/typescript).
+## HOW TO USE
 
-## How to use
-
-Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [npm](https://docs.npmjs.com/cli/init) or [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/) to bootstrap the example:
-
+### 1. Install all dependencies: 
 ```bash
-npx create-next-app --example with-storybook with-storybook-app
-# or
-yarn create next-app --example with-storybook with-storybook-app
+$ yarn 
+# or 
+$ npm install
 ```
 
-## Run Storybook
-
+### 2. Run the project in dev mode:
 ```bash
-npm run storybook
+$ yarn dev
 # or
-yarn storybook
+npm run dev
 ```
 
-## Build Static Storybook
+### 3. Open Browser
+Open browser at `http://localhost:3000/`
 
-```bash
-npm run build-storybook
-# or
-yarn build-storybook
-```
 
-You can use [Vercel](https://vercel.com/import?filter=next.js&utm_source=github&utm_medium=readme&utm_campaign=next-example) to deploy Storybook. Specify `storybook-static` as the output directory.
+## PROJECT OVERVIEW
+
+You own a drink bar with self-order through a​ **t​ablet as a menu.**​ <br />
+
+You want your customer to have a drink experience **that starts from selecting a favourite ingredient.**<br />
+
+Customers can choose one ingredient and have an overview of **suggested drinks that matches**, then they can make an order directly from the tablet.<br />
+
+You will use data from [TheCocktailDB.com](https://www.thecocktaildb.com/api.php)
+
+
+### Main User Stories
+| US | Description |
+| :------------ | :----------- |
+| **#1**: |  As a user I want to search drinks from a selection of ingredients that fit my tastes. |
+| **#2**: | As a user I want to make an order from the found drinks so that i can get my drinks. |
+| **#3**: | As a user I want to review my order to make sure it's right. |
+
+> We will not set up any acceptance criteria for these stories, you may try to
+imagine the minimum functionalities to create a good experience.
+
+### Technical Requirements
+
+> React Project build with **NextJS** Framework
+
+- [x] Create at least two different routes with a cool transition between them.
+- [x] We want to prefetch cocktails at build time.
+- [x] Create at least a custom hook.
+- [x] Must be responsive.
+
+### Evaluation Goals
+
+- :rocket: Performance
+- :european_castle: Method in architecture implementation
+- :cake: Components architecture
+- :link: Organization and structure of project and code
+- :thought_balloon: Thinking out of the box
+- :recycle: User experience

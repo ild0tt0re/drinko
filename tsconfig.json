@@ -1,5 +1,11 @@
 {
   "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/components/*": [
+        "components/*"
+      ]
+    },
     "target": "es5",
     "lib": [
       "dom",
@@ -26,10 +32,4 @@
   "exclude": [
     "node_modules"
   ],
-  "baseUrl": ".",
-  "paths": {
-    "@/components/*": [
-      "components/*"
-    ]
-  }
 }

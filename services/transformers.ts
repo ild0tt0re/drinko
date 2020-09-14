@@ -3,7 +3,7 @@ function transformIngredientsData(data) {
     const { strIngredient1 } = ingredient
 
     return {
-      imageSrc: `https://www.thecocktaildb.com/images/ingredients/${strIngredient1}.png`,
+      imageSrc: encodeURI(`https://www.thecocktaildb.com/images/ingredients/${strIngredient1}.png`),
       title: strIngredient1,
     }
   })
@@ -12,7 +12,7 @@ function transformIngredientsData(data) {
 function transformCocktailsData(data) {
   return data?.drinks.map((cocktail) => {
     return {
-      imageSrc: cocktail.strDrinkThumb,
+      imageSrc: encodeURI(cocktail.strDrinkThumb),
       title: cocktail.strDrink,
     }
   })

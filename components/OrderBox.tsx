@@ -19,7 +19,7 @@ const OrderBox: React.FC<OrderData> = ({
   return (
     <>
       <div className="order-box-container">
-        <p>Your order has been taken</p>
+        <p className="title">Your order has been taken</p>
         <ul>
           <li>
             {selectedIngredient?.imageSrc && (
@@ -47,7 +47,9 @@ const OrderBox: React.FC<OrderData> = ({
       </div>
 
       <style jsx>{`
-        .order-box-container {
+        .order-box-container .title {
+          font-size: 20px;
+          font-weight: bold;
         }
         ul {
           margin: 0;

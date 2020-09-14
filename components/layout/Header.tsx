@@ -1,5 +1,4 @@
-//@ts-ignore
-import Chevron from '../../public/assets/chevron.svg'
+import Chevron from '../../public/icons/chevron.svg'
 import { useRouter } from 'next/router'
 import React from 'react'
 

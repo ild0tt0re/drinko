@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import useIntersectionObserver from './useIntersectionObserver'
 
-function useLazyLoadItems(items) {
+function useLazyLoadItems(items): any {
   const [itemsToShow, setIngredientsToShow] = useState([...items]?.slice(0, 8))
   const [ref, setRef] = useState(null)
   const { isIntersecting } = useIntersectionObserver(ref)

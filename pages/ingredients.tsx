@@ -7,6 +7,7 @@ import { GetStaticProps, InferGetStaticPropsType, NextPage } from 'next'
 import OrderFlowLayout from '../components/layout/OrderFlowLayout'
 import useLazyLoadItems from '../hooks/useLazyLoadItems'
 import Marker from '../components/Marker'
+import WithCSSTransition from '../components/WithCSSTransition'
 
 const Cocktails = ({ ingredients, order }) => {
   const router = useRouter()
@@ -22,11 +23,11 @@ const Cocktails = ({ ingredients, order }) => {
   ] = useLazyLoadItems(ingredients)
 
   const { orderData, setOrderData } = order
-  console.log('orderData', orderData)
 
   const handleClick = (slug, newOrderData) => {
     const selectedIngredient = newOrderData
     setOrderData({ ...orderData, selectedIngredient })
+    console.log('orderData', orderData)
 
     const url = `cocktails/${slug}`
     router.push(url)
@@ -34,13 +35,15 @@ const Cocktails = ({ ingredients, order }) => {
 
   return (
     <>
-      <section>
-        <h1>Ingredients</h1>
-        <Grid>
-          <List items={ingredientsToShow} handleClick={handleClick}></List>
-        </Grid>
-        <Marker setRef={setRef} />
-      </section>
+      <WithCSSTransition classNames="order-page">
+        <section>
+          <h1>Ingredients</h1>
+          <Grid>
+            <List items={ingredientsToShow} handleClick={handleClick}></List>
+          </Grid>
+          <Marker setRef={setRef} />
+        </section>
+      </WithCSSTransition>
       <style jsx>{`
         /* Medium devices (tablets)*/
         @media (min-width: 768px) {

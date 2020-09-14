@@ -1,6 +1,10 @@
 import React from 'react'
 
-const LiquidTextAnimation: React.FC<any> = ({ text }) => {
+type LiquidTextAnimationProps = {
+  text: string
+}
+
+const LiquidTextAnimation: React.FC<LiquidTextAnimationProps> = ({ text }) => {
   return (
     <>
       <div className="liquid-text-animation-container">

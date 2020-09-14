@@ -1,6 +1,10 @@
-import React from 'react'
+import React, { RefObject } from 'react'
 
-const Marker: React.FC<any> = ({ setRef }) => {
+type MarkerProps = {
+  setRef: RefObject<HTMLDivElement>
+}
+
+const Marker: React.FC<MarkerProps> = ({ setRef }) => {
   return (
     <>
       <div className="marker-container" ref={setRef}>

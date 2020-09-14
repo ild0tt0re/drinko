@@ -1,7 +1,12 @@
 import React from 'react'
 import LiquidTextAnimation from './LiquidTextAnimation'
 
-const WelcomeBanner: React.FC<any> = ({ text, slogan }) => {
+type WelcomeBannerProps = {
+  text: string
+  slogan: string
+}
+
+const WelcomeBanner: React.FC<WelcomeBannerProps> = ({ text, slogan }) => {
   return (
     <>
       <LiquidTextAnimation text={text} />

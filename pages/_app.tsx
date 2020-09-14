@@ -1,5 +1,5 @@
 import React from 'react'
-import '../public/assets/styles.css'
+import '../public/styles/styles.css'
 
 export default function MyApp({ Component, pageProps }) {
   const Layout = Component.Layout ? Component.Layout : React.Fragment

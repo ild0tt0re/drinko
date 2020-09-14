@@ -1,8 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap');
+@import './fonts.css';
+@import './vars.css';
 
-:root {
-  --brand-color: #03a9f4;
-}
+/* CSS RESET */
 * {
   margin: 0;
   padding: 0;
@@ -19,7 +18,7 @@ h1 {
   font-size: 40px;
   padding: 40px 10px;
   text-align: center;
-  font-family: 'Luckiest Guy', cursive;
+  font-family: var(--primary-font);
 }
 /* Medium devices (tablets)*/
 @media (min-width: 768px) {

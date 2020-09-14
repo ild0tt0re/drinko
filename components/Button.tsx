@@ -17,13 +17,13 @@ export const Button: React.FC<ButtonProps> = ({
   ...props
 }) => {
   const mode = primary
-    ? 'storybook-button--primary'
-    : 'storybook-button--secondary'
+    ? 'button--primary'
+    : 'button--secondary'
   return (
     <>
       <button
         type="button"
-        className={['storybook-button', `storybook-button--${size}`, mode].join(
+        className={['button', `button--${size}`, mode].join(
           ' '
         )}
         style={backgroundColor && { backgroundColor }}
@@ -34,7 +34,7 @@ export const Button: React.FC<ButtonProps> = ({
       </button>
 
       <style jsx>{`
-        .storybook-button {
+        .button {
           font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial,
             sans-serif;
           font-weight: 700;
@@ -44,24 +44,24 @@ export const Button: React.FC<ButtonProps> = ({
           display: inline-block;
           line-height: 1;
         }
-        .storybook-button--primary {
+        .button--primary {
           color: white;
-          background-color: #1ea7fd;
+          background-color: var(--brand-color);
         }
-        .storybook-button--secondary {
+        .button--secondary {
           color: #333;
           background-color: transparent;
           box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 0px 1px inset;
         }
-        .storybook-button--small {
+        .button--small {
           font-size: 12px;
           padding: 10px 16px;
         }
-        .storybook-button--medium {
+        .button--medium {
           font-size: 14px;
           padding: 11px 10px;
         }
-        .storybook-button--large {
+        .button--large {
           font-size: 16px;
           padding: 12px 24px;
         }

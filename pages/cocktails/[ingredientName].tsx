@@ -7,6 +7,7 @@ import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from 'next'
 import OrderFlowLayout from '../../components/layout/OrderFlowLayout'
 import useLazyLoadItems from '../../hooks/useLazyLoadItems'
 import Marker from '../../components/Marker'
+import WithCSSTransition from '../../components/WithCSSTransition'
 
 function Cocktails({ cocktails, order }) {
   const router = useRouter()
@@ -21,28 +22,30 @@ function Cocktails({ cocktails, order }) {
   )
 
   const { orderData, setOrderData } = order
-  console.log('orderData', orderData)
 
   const handleClick = (slug, newOrderData) => {
     const selectedCocktail = newOrderData
     setOrderData({ ...orderData, selectedCocktail })
+    console.log('orderData', orderData)
 
     router.push(`/order-review`)
   }
 
   return (
     <>
-      <h1>Cocktails</h1>
-      <section className="ingredients-content">
-        <Grid>
-          <List
-            items={cocktailsToShow}
-            handleClick={handleClick}
-            buttonColor="#f1540a"
-          ></List>
-        </Grid>
-        <Marker setRef={setRef} />
-      </section>
+      <WithCSSTransition classNames="order-page">
+        <section className="ingredients-content">
+          <h1>Cocktails</h1>
+          <Grid>
+            <List
+              items={cocktailsToShow}
+              handleClick={handleClick}
+              buttonColor="#f1540a"
+            ></List>
+          </Grid>
+          <Marker setRef={setRef} />
+        </section>
+      </WithCSSTransition>
 
       <style jsx>{`
         .ingredients-content :global(.card-container) {

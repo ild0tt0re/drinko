@@ -28,7 +28,7 @@ const useIntersectionObserver = <T extends HTMLElement = HTMLElement>(
     if (typeof IntersectionObserver === 'undefined') return null
     const observer = new IntersectionObserver(
       (entries) => setEntry(entries[entries.length - 1]),
-      {root, rootMargin, threshold}
+      { root, rootMargin, threshold }
     )
     // @ts-ignore
     observer.POLL_INTERVAL = pollInterval
@@ -50,15 +50,15 @@ const useIntersectionObserver = <T extends HTMLElement = HTMLElement>(
     rootMargin,
     pollInterval,
     useMutationObserver,
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    //@ts-ignore
     ...(Array.isArray(threshold) === true ? threshold : [threshold]),
   ])
 
   useLayoutEffect(() => {
     const targetEl = target && 'current' in target ? target.current : target
-    targetEl && observer && observer.observe(targetEl)
+    targetEl && observer && observer.observe(targetEl as any)
     return (): void => {
-      targetEl && observer && observer.unobserve(targetEl)
+      targetEl && observer && observer.unobserve(targetEl as any)
     }
   }, [target, observer])
 
