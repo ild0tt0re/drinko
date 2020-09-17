@@ -20,6 +20,12 @@ h1 {
   text-align: center;
   font-family: var(--primary-font);
 }
+button {
+  outline: none;
+}
+.pointer-down {
+  transform: scale(0.9);
+}
 /* Medium devices (tablets)*/
 @media (min-width: 768px) {
   h1 {

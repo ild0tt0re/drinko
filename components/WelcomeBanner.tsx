@@ -22,7 +22,7 @@ const WelcomeBanner: React.FC<WelcomeBannerProps> = ({ text, slogan }) => {
 
           transform: translateY(50px);
           opacity: 0;
-          animation: 0.5s slideUp 0.5s ease-out forwards;
+          animation: 0.3s slideUp 0.3s ease-out forwards;
         }
         @keyframes slideUp {
           from {

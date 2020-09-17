@@ -28,6 +28,7 @@ const Card: React.FC<CardProps> = ({
         <ResponsiveImageTCDB imageSrc={imageSrc} />
         {title && <p className="title">{title}</p>}
         <Button
+          size="large"
           label={buttonLabel}
           backgroundColor={buttonColor}
           onClick={onClick && handleClick}

@@ -1,4 +1,5 @@
-import React from 'react'
+import usePointerDown from 'hooks/usePointerDown'
+import React, { useState } from 'react'
 
 type ButtonProps = {
   label: string
@@ -16,18 +17,26 @@ export const Button: React.FC<ButtonProps> = ({
   onClick = undefined,
   ...props
 }) => {
-  const mode = primary
-    ? 'button--primary'
-    : 'button--secondary'
+  const [isPointerDown, { onPointerDown, onPointerUp }] = usePointerDown()
+
+  const computeClasses = () => {
+    return [
+      'button',
+      `button--${size}`,
+      primary ? 'button--primary' : 'button--secondary',
+      isPointerDown ? 'pointer-down' : '',
+    ].join(' ')
+  }
+
   return (
     <>
       <button
         type="button"
-        className={['button', `button--${size}`, mode].join(
-          ' '
-        )}
+        className={computeClasses()}
         style={backgroundColor && { backgroundColor }}
         onClick={onClick}
+        onPointerDown={onPointerDown}
+        onPointerUp={onPointerUp}
         {...props}
       >
         {label}

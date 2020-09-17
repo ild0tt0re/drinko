@@ -1,11 +1,13 @@
-import Chevron from '../../public/icons/chevron.svg'
-import { useRouter } from 'next/router'
 import React from 'react'
+import { useRouter } from 'next/router'
+import Chevron from '../../public/icons/chevron.svg'
+import usePointerDown from '../../hooks/usePointerDown'
 
 export type HeaderProps = {}
 
 const Header: React.FC<HeaderProps> = ({}) => {
   const router = useRouter()
+  const [isPointerDown, { onPointerDown, onPointerUp }] = usePointerDown()
 
   const handleClick = (e) => {
     e.preventDefault()
@@ -14,7 +16,14 @@ const Header: React.FC<HeaderProps> = ({}) => {
   return (
     <>
       <header>
-        <button className="back" onClick={() => router.back()}>
+        <button
+          className={`back marker-container ${
+            isPointerDown ? 'pointer-down' : ''
+          }`}
+          onClick={() => router.back()}
+          onPointerDown={onPointerDown}
+          onPointerUp={onPointerUp}
+        >
           <Chevron />
         </button>
       </header>
