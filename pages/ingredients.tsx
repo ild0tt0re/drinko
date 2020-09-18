@@ -56,7 +56,7 @@ const Cocktails = ({ ingredients, order }) => {
 
 export const getStaticProps: GetStaticProps = async (ctx) => {
   const data = await getIngredientsList()
-  const ingredients = transformIngredientsData(data, true)
+  const ingredients = transformIngredientsData(data, false)
 
   // for (const item of data.drinks.slice(0, 200)) {
   //   const imageSrc = `https://www.thecocktaildb.com/images/ingredients/${item.strIngredient1}.png`

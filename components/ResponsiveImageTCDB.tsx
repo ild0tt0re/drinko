@@ -1,3 +1,4 @@
+import { getImageNameFromPath, getImageTypeFromPath } from 'lib/imageUtils'
 import { useState } from 'react'
 
 type ImageTCDB = {
@@ -12,18 +13,6 @@ type ImageProps = {
 
 const ResponsiveImageTCDB: React.FC<ImageProps> = ({ imageSrc }) => {
   const [images, setImages] = useState(buildImageUrlByDevice(imageSrc))
-
-  const getImageNameFromPath = (imageInPath: string) => {
-    return imageInPath
-      .split('/')
-      .pop()
-      .replace(/(.jpe?g|.png|.webp)/, '')
-  }
-
-  function getImageTypeFromPath(image: string) {
-    const imageExt = image.split('.').pop()
-    return imageExt
-  }
 
   function buildImageUrlByDevice(imgSrc): ImageTCDB {
     const encodedImgSrc = encodeURI(imgSrc)
