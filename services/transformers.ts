@@ -1,9 +1,9 @@
-function transformIngredientsData(data, imgLocalFolder = false) {
+function transformIngredientsData(data, imgFromLocal = false) {
   return data?.drinks.map((ingredient) => {
     const { strIngredient1 } = ingredient
 
     return {
-      imageSrc: imgLocalFolder ? `/images/${strIngredient1}.webp` : `https://www.thecocktaildb.com/images/ingredients/${strIngredient1}.png`,
+      imageSrc: imgFromLocal ? `/images/${strIngredient1}.webp` : `https://www.thecocktaildb.com/images/ingredients/${strIngredient1}.png`,
       title: strIngredient1,
     }
   })
