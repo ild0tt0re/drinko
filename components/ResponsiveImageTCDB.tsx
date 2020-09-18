@@ -1,3 +1,5 @@
+import { useState } from 'react'
+
 type ImageTCDB = {
   mobile: string
   tablet?: string
@@ -9,23 +11,57 @@ type ImageProps = {
 }
 
 const ResponsiveImageTCDB: React.FC<ImageProps> = ({ imageSrc }) => {
-  const image: ImageTCDB = {
-    mobile: imageSrc.replace('.png', '-Small.png'),
-    tablet: imageSrc.includes('ingredients') ? imageSrc.replace('.png', '-Medium.png') : null,
-    desktop: `${imageSrc}`,
+  const [images, setImages] = useState(buildImageUrlByDevice(imageSrc))
+
+  const getImageNameFromPath = (imageInPath: string) => {
+    return imageInPath
+      .split('/')
+      .pop()
+      .replace(/(.jpe?g|.png|.webp)/, '')
+  }
+
+  function getImageTypeFromPath(image: string) {
+    const imageExt = image.split('.').pop()
+    return imageExt
+  }
+
+  function buildImageUrlByDevice(imgSrc): ImageTCDB {
+    const encodedImgSrc = encodeURI(imgSrc)
+    const imgExt = getImageTypeFromPath(imageSrc)
+
+    return {
+      mobile: encodedImgSrc.replace(`.${imgExt}`, `-Small.${imgExt}`),
+      tablet: encodedImgSrc.includes('ingredients')
+        ? encodedImgSrc.replace(`.${imgExt}`, `-Medium.${imgExt}`)
+        : null,
+      desktop: `${encodedImgSrc}`,
+    }
+  }
+
+  const onError = () => {
+    const imageName = getImageNameFromPath(imageSrc)
+    // const imageType = getImageTypeFromPath(imageSrc)
+    const thecocktaildbUrl = `https://www.thecocktaildb.com/images/ingredients/${imageName}.png`
+
+    setImages(buildImageUrlByDevice(thecocktaildbUrl))
   }
 
   return (
     <>
       <img
-        srcSet={`${image.mobile} 100w,
-                 ${image.tablet ? image.tablet + ' 400w,' : ''}
-                 ${image.desktop} 700w`}
+        srcSet={`${images.mobile} 100w,
+                 ${images.tablet ? images.tablet + ' 400w,' : ''}
+                 ${images.desktop} 700w`}
         sizes={`(max-width: 576px) 100px,
-                ${image.tablet ? image.tablet + '(max-width: 1200px) 400px,' : ''}
+                ${
+                  images.tablet
+                    ? images.tablet + '(max-width: 1200px) 400px,'
+                    : ''
+                }
                 700px`}
-        src={image.tablet}
+        src={images.tablet}
         alt="Bacardi"
+        onError={onError}
       />
       <style jsx>{`
         img {
