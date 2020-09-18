@@ -49,7 +49,7 @@ const ResponsiveImageTCDB: React.FC<ImageProps> = ({ imageSrc }) => {
                 }
                 700px`}
         src={images.tablet}
-        alt="Bacardi"
+        alt={getImageNameFromPath(imageSrc)}
         onError={onError}
       />
       <style jsx>{`
