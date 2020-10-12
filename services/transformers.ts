@@ -1,9 +1,9 @@
-function transformIngredientsData(data) {
+function transformIngredientsData(data, imgFromLocal = false) {
   return data?.drinks.map((ingredient) => {
     const { strIngredient1 } = ingredient
 
     return {
-      imageSrc: encodeURI(`https://www.thecocktaildb.com/images/ingredients/${strIngredient1}.png`),
+      imageSrc: imgFromLocal ? `/images/${strIngredient1}.webp` : `https://www.thecocktaildb.com/images/ingredients/${strIngredient1}.png`,
       title: strIngredient1,
     }
   })
@@ -12,7 +12,7 @@ function transformIngredientsData(data) {
 function transformCocktailsData(data) {
   return data?.drinks.map((cocktail) => {
     return {
-      imageSrc: encodeURI(cocktail.strDrinkThumb),
+      imageSrc: cocktail.strDrinkThumb,
       title: cocktail.strDrink,
     }
   })

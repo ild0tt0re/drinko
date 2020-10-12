@@ -20,7 +20,7 @@ const LiquidTextAnimation: React.FC<LiquidTextAnimationProps> = ({ text }) => {
 
           transform: translateY(-50px);
           opacity: 0;
-          animation: 1s slideUp 1s ease-out forwards;
+          animation: .4s slideUp .5s ease-out forwards;
         }
         h1 {
           position: absolute;

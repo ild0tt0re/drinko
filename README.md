@@ -25,7 +25,7 @@ Open browser at `http://localhost:3000/`
 
 ## PROJECT OVERVIEW
 
-You own a drink bar with self-order through a​ **t​ablet as a menu.**​ <br />
+You own a drink bar with self-order through a​ **t​ablet as a menu**.​ <br />
 
 You want your customer to have a drink experience **that starts from selecting a favourite ingredient.**<br />
 
@@ -55,9 +55,9 @@ imagine the minimum functionalities to create a good experience.
 
 ### Evaluation Goals
 
-- :rocket: Performance
+- :zap: Performance
 - :european_castle: Method in architecture implementation
-- :cake: Components architecture
+- :jigsaw: Components architecture
 - :link: Organization and structure of project and code
 - :thought_balloon: Thinking out of the box
 - :recycle: User experience

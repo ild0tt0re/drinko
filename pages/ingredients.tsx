@@ -8,6 +8,7 @@ import OrderFlowLayout from '../components/layout/OrderFlowLayout'
 import useLazyLoadItems from '../hooks/useLazyLoadItems'
 import Marker from '../components/Marker'
 import WithCSSTransition from '../components/WithCSSTransition'
+import { withBufferConvertImageFromUrl } from 'lib/imageProcessing'
 
 const Cocktails = ({ ingredients, order }) => {
   const router = useRouter()
@@ -55,7 +56,13 @@ const Cocktails = ({ ingredients, order }) => {
 
 export const getStaticProps: GetStaticProps = async (ctx) => {
   const data = await getIngredientsList()
-  const ingredients = transformIngredientsData(data)
+  const ingredients = transformIngredientsData(data, false)
+
+  // for (const item of data.drinks.slice(0, 200)) {
+  //   const imageSrc = `https://www.thecocktaildb.com/images/ingredients/${item.strIngredient1}.png`
+  //   withBufferConvertImageFromUrl(imageSrc).catch((e)=> console.log('ERROR withBuffer: ', e))
+  //   // fetchImage(ingredient.imageSrc)
+  // }
 
   return {
     props: { ingredients },

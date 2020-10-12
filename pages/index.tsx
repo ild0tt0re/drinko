@@ -25,7 +25,7 @@ export default function Home() {
         }
         :global(button) {
           opacity: 0;
-          animation: 1s fadeIn 1.6s ease-out forwards;
+          animation: 0.5s fadeIn 0.8s ease-out forwards;
         }
         @keyframes fadeIn {
           from {
